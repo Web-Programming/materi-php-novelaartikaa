@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
@@ -9,17 +10,22 @@ class ProdiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    use App\Models\Prodi;
+
+public function index()
+{
+    $listprodi = Prodi::all(); // Ambil semua data dari tabel prodis
+    return view('prodi.index', compact('listprodi')); // Kirim ke view
+}
+
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view("prodi.create");
     }
 
     /**
