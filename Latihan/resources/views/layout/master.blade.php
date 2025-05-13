@@ -6,7 +6,7 @@
     <title>@yield('title')</title>
 
     <!-- AdminLTE CSS -->
-    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('AdminLTE-4.0.0-beta3/dist/css/adminlte.min.css') }}">
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -28,7 +28,7 @@
     </div>
 
     <!-- AdminLTE JS -->
-    <script src="{{ asset('js/adminlte.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-4.0.0-beta3/dist/js/adminlte.min.js') }}"></script>
 </body>
 </html>
 
