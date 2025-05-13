@@ -3,20 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('tittle') </title>
+    <title>@yield('title')</title>
+
+    <!-- AdminLTE CSS -->
+    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}">
 </head>
-<body>
-    <!-- ini bagian header -->
-    @include('layout.header')
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
 
-    <!-- ini bagian side bar -->
-    @include('layout.sidebar')
+        {{-- Header --}}
+        @include('layout.header')
 
-    <!-- ini bagian Content-->
-    @yield('content')
+        {{-- Sidebar --}}
+        @include('layout.sidebar')
 
-    <!-- ini bagian footer -->
-    @include('layout.footer')
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @yield('content')
+        </div>
 
+        {{-- Footer --}}
+        @include('layout.footer')
+
+    </div>
+
+    <!-- AdminLTE JS -->
+    <script src="{{ asset('js/adminlte.min.js') }}"></script>
 </body>
 </html>
+

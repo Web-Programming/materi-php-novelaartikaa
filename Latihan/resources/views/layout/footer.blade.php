@@ -1,3 +1,4 @@
-<div>
-    <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
-</div>
+<!-- Main Footer -->
+<footer class="main-footer">
+  <strong>&copy; 2025 Universitas Contoh.</strong> All rights reserved.
+</footer>

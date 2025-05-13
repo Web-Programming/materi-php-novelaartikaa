@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\http\controllers\ProdiController;
-
+use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\DosenController;
+use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\MateriController;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +23,7 @@ Route::get('/berita/{id}/{judul?}', function ($id, $judul = judul) {
 });
 
 Route::get('/prodi/index', [ProdiController::class, 'index']);
+Route::resource('prodi', ProdiController::class);
+Route::resource('fakultas', FakultasController::class);
+Route::resource('mhs', MahasiswaController::class); // ganti dari 'mahasiswa' ke 'mhs'
+Route::resource('dosen', DosenController::class);
