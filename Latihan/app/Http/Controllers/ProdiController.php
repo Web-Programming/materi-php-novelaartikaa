@@ -10,15 +10,12 @@ class ProdiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    use App\Models\Prodi;
-
-public function index()
-{
-    $listprodi = Prodi::all(); // Ambil semua data dari tabel prodis
-    return view('prodi.index', compact('listprodi')); // Kirim ke view
-}
-
-
+    public function index() {
+        $listprodi = Prodi::get();
+        return view("prodi.index", 
+        ['listprodi' => $listprodi]
+        );
+    }
 
     /**
      * Show the form for creating a new resource.
