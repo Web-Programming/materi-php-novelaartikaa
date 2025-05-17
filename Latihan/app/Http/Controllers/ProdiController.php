@@ -30,7 +30,10 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validdate(
+        ['nama' => 'required|min:5|max:20',
+        'kode_prodi' => 'required|min:2|max:2'
+        ]);
     }
 
     /**
