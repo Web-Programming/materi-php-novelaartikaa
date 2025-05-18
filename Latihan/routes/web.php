@@ -22,6 +22,9 @@ Route::get('/berita/{id}/{judul?}', function ($id, $judul = judul) {
     return view('berita', ['id' => $id, 'judul' => $judul]);
 });
 
+#route materi
+
+
 Route::get('/prodi/index', [ProdiController::class, 'index']);
 Route::resource('prodi', ProdiController::class);
 Route::resource('fakultas', FakultasController::class);
