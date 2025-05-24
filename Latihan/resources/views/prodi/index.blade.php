@@ -78,7 +78,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $prodi->nama }}</td>
                             <td>{{ $prodi->kode_prodi }}</td>
-                            <td>{{ $prodi->logo }}
+                            <td>
                               @if ($prodi->logo)
                                 <img src="{{ asset('images/'.$prodi->logo) }}" alt="" width="100px">
                               @else
@@ -86,13 +86,12 @@
                               @endif
                             </td>
                             <td>
-                              
                               <form action="{{ url('prodi/'.$prodi->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <a href="{{ url('prodi/'.$prodi->id) }}" class="btn btn-link" >Detail</a>
-                                <a href="{{ url('prodi/'.$prodi->id.'/edit') }}"  class="btn btn-link" >Edit</a>
-                                <button type="submit" class="btn btn-link">Delete</button>
+                                <a href="{{ url('prodi/'.$prodi->id) }}" class="btn btn-info btn-sm">Detail</a>
+                                <a href="{{ url('prodi/'.$prodi->id.'/edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                               </form>
                             </td>
                           </tr>
@@ -114,4 +113,3 @@
         </div>
         <!--end::App Content-->
 @endsection
-
