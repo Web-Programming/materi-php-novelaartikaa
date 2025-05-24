@@ -1,6 +1,6 @@
 @extends('layout.master')
 
-@section('title', "Halaman List Prodi")
+@section('title', "Halaman Create Prodi")
 
 @section('content')
         <!--begin::App Content Header-->
@@ -60,7 +60,8 @@
                           {{ session('status') }}
                       </div>
                     @endif
-                    <form method="post" action="{{ url("prodi") }} enctype="multipart/form-data">
+                    <form method="post" action="{{ url("prodi") }}" 
+                    enctype="multipart/form-data">
                       @csrf
                       <div class="mb-3">
                         <label >Nama Prodi</label>
@@ -76,15 +77,13 @@
                           <div class="text-danger">{{ $message }}</div>
                         @enderror
                       </div>
+
                       <div class="mb-3">
                         <label>Logo Prodi</label>
-                        <input type="file" name="logo" class="form-control" >
+                        <input type="file" name="logo" class="form-control">
                         @error('logo')
                           <div class="text-danger">{{ $message }}</div>
                         @enderror
-                      </div>
-                      
-
                       </div>
                       <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
