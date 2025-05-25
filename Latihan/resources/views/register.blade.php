@@ -3,10 +3,10 @@
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Login Page</title>
+    <title>Register Page</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="title" content="Login Page" />
+    <meta name="title" content="Register Page" />
     <meta name="author" content="ColorlibHQ" />
 
     <!--end::Primary Meta Tags-->
@@ -40,30 +40,38 @@
   </head>
   <!--end::Head-->
   <!--begin::Body-->
-  <body class="login-page bg-body-secondary">
-    <div class="login-box">
+  <body class="register-page bg-body-secondary">
+    <div class="register-box">
+      <!-- /.register-logo -->
       <div class="card card-outline card-primary">
         <div class="card-header">
           <a
             href=""
             class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover"
           >
-            <h1 class="mb-0">Login Page</h1>
+            <h1 class="mb-0"><b>Registration Page</h1>
           </a>
         </div>
-        <div class="card-body login-card-body">
-          <p class="login-box-msg">Sign in to start your session</p>
-           @error('failed')
-            <div class="alert alert-danger">
-              {{ $message }}
-            </div>
-            @enderror
-          <form action="{{ url('login') }}" method="post">
+        <div class="card-body register-card-body">
+          <p class="register-box-msg">Register a new membership</p>
+          <form action="{{url ('register')}}" method="post">
             @csrf
             <div class="input-group mb-1">
               <div class="form-floating">
-                <input id="loginEmail" type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="" />
-                <label for="loginEmail">Email</label>
+                <input id="registerFullName" name="name" type="text" class="form-control" placeholder="" />
+                <label for="registerFullName">Full Name</label>
+              </div>
+              <div class="input-group-text"><span class="bi bi-person"></span></div>
+            </div>
+            @error('name')
+            <div class="text-danger small mt-1 mb-2">
+              {{ $message }}
+            </div>
+            @enderror
+            <div class="input-group mb-1">
+              <div class="form-floating">
+                <input id="registerEmail" type="email" name="email" class="form-control" placeholder="" />
+                <label for="registerEmail">Email</label>
               </div>
               <div class="input-group-text"><span class="bi bi-envelope"></span></div>
             </div>
@@ -74,44 +82,38 @@
             @enderror
             <div class="input-group mb-1">
               <div class="form-floating">
-                <input id="loginPassword" type="password" name="password" class="form-control" placeholder="" />
-                <label for="loginPassword">Password</label>
+                <input id="registerPassword" type="password" name="password" class="form-control" placeholder="" />
+                <label for="registerPassword">Password</label>
               </div>
               <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
             </div>
             @error('password')
-            <div class="text-danger small mt-1 mb-2">
-                {{ $message }}
+            <div class="text-danger small mt-1 mb-3">
+              {{ $message }}
             </div>
             @enderror
             <!--begin::Row-->
             <div class="row">
-              <div class="col-8 d-inline-flex align-items-center">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                  <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
-                </div>
-              </div>
               <!-- /.col -->
               <div class="col-4">
                 <div class="d-grid gap-2">
-                  <button type="submit" class="btn btn-primary">Sign In</button>
+                  <button type="submit" class="btn btn-primary">Sign Up</button>
                 </div>
               </div>
               <!-- /.col -->
             </div>
             <!--end::Row-->
           </form>
+
           <!-- /.social-auth-links -->
-          <p class="mb-1"><a href="forgot-password.html">I forgot my password</a></p>
           <p class="mb-0">
-            <a href="{{url ('register')}}" class="text-center"> Register a new membership </a>
+            <a href="{{url ('login')}}" class="link-primary text-center"> I already have a membership </a>
           </p>
         </div>
-        <!-- /.login-card-body -->
+        <!-- /.register-card-body -->
       </div>
     </div>
-    <!-- /.login-box -->
+    <!-- /.register-box --> 
     <!--begin::Third Party Plugin(OverlayScrollbars)-->
     <script
       src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.10.1/browser/overlayscrollbars.browser.es6.min.js"
