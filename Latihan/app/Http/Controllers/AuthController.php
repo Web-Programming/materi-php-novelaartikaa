@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
     function login(){
+        $user = Auth::user();
+        // jika user sudah login
+        if($user){
+            // cek level
+            if($user->level =='admin') {
+                return redirect()->intended('admin'); 
+            } else if($user->level == 'user'){
+                return redirect()->intended('user');
+            }
+        }
+
         return view("login");
     }
 
