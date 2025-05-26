@@ -64,11 +64,11 @@
             <li class="nav-item dropdown user-menu">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img
-                  src="{{ asset("dist/assets/img/user2-160x160.jpg") }}"
+                  src="{{ asset("assets/img/user2-160x160.jpg") }}"
                   class="user-image rounded-circle shadow"
                   alt="User Image"
                 />
-                <span class="d-none d-md-inline">Alexander Pierce</span>
+                <span class="d-none d-md-inline">{{ auth()->user()->name }}</span>
               </a>
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::User Image-->
@@ -79,8 +79,7 @@
                     alt="User Image"
                   />
                   <p>
-                    Alexander Pierce - Web Developer
-                    <small>Member since Nov. 2023</small>
+                    {{ auth()->user()->name }} - {{ auth()->user()->email }}
                   </p>
                 </li>
                 <!--end::User Image-->
