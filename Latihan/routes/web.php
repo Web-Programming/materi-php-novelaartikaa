@@ -39,15 +39,22 @@ Route::get("/register", [AuthController::class, 'register']);
 Route::post("/register", [AuthController::class, 'do_register']);
 Route::get("/logout", [AuthController::class, 'logout']);
 
-Route::group(['middleware' => ['auth']], function (): void {
-    Route::group(['middleware' => [CekLogin::class . ':admin']], function (): void {
-        Route::get('/admin', [AdminController::class, 'index']);
+// Route Grouping with Middleware
+Route::group(['middleware' => ['auth']], function(){
+
+    Route::get("/admin", [AdminController::class, 'index'])
+        ->middleware(CekLogin::class.':admin');
+    Route::get("/user", [UserController::class, 'index'])
+        ->middleware(CekLogin::class.':user');
+
+    Route::prefix('admin')->group(function(){
         Route::resource('prodi', ProdiController::class);
         Route::resource('fakultas', FakultasController::class);
-    });
+    })->middleware(CekLogin::class.':admin');
 
-    Route::group(['middleware' => [CekLogin::class . ':user']], function (): void {
-        Route::get('/user', [UserController::class, 'index']);
-    });
+    Route::prefix('user')->group(function(){
+        Route::resource('prodi', ProdiController::class);
+    })->middleware(CekLogin::class.':user');
+
 });
 
