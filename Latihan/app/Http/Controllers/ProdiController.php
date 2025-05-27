@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Prodi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProdiController extends Controller
 {
@@ -11,6 +12,8 @@ class ProdiController extends Controller
      * Display a listing of the resource.
      */
     public function index() {
+        Gate::authorize('viewAny', prodi::class);
+
         $listprodi = Prodi::get();
         return view("prodi.index", 
         ['listprodi' => $listprodi]
@@ -64,6 +67,7 @@ class ProdiController extends Controller
      */
     public function show(string $id)
     {
+        Gate::authorize('view', prodi::class);
         //select prodi by id
         $prodi = Prodi::find($id);
 
@@ -76,6 +80,7 @@ class ProdiController extends Controller
      */
     public function edit(string $id)
     {
+        Gate::authorize('update', prodi::class);
         //select prodi by id
         $prodi = Prodi::find($id);
 
